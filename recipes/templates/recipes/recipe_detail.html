@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ recipe.title }}
+{% endblock %}
+
+{% block content %}
+<h1>{{ recipe.title }}</h1>
+<p>{{ recipe.description }}</p>
+<h4>Шаги приготовления:</h4>
+<p>{{ recipe.steps }}</p>
+<p>Время приготовления в часах: {{ recipe.preparation_time }}</p>
+<img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" width="150" height="125">
+<p>Добавлено автором: {{ recipe.author.username }}</p>
+<a href="{% url 'edit_recipe' recipe.pk %}">Edit Recipe</a>
+{% endblock %}
